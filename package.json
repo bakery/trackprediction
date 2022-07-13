@@ -1,0 +1,24 @@
+{
+  "name": "prediction-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "^16.13.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.5.1",
+    "jest": "^28.1.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "build",
+      ".cache"
+    ]
+  }
+}

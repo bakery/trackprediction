@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_twitter_tweets",
+  "info": {
+    "displayName": "Tweet",
+    "icon": "pen-fancy"
+  },
+  "options": {},
+  "attributes": {
+    "author": {
+      "type": "component",
+      "repeatable": false,
+      "component": "twitter.twitter-user",
+      "required": true
+    },
+    "twitter_id": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text",
+      "required": true
+    },
+    "lang": {
+      "type": "string"
+    },
+    "twitter_created_at": {
+      "type": "datetime"
+    }
+  }
+}

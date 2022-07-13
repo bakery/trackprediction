@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "predictions",
+  "info": {
+    "singularName": "prediction",
+    "pluralName": "predictions",
+    "displayName": "Prediction",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tweet": {
+      "type": "component",
+      "repeatable": false,
+      "component": "twitter.tweet",
+      "required": true
+    },
+    "author": {
+      "type": "component",
+      "repeatable": false,
+      "component": "twitter.twitter-user",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "validated",
+        "falsified",
+        "inconclusive"
+      ],
+      "required": true,
+      "default": "pending"
+    },
+    "source_tweet": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tweet.tweet"
+    },
+    "source_tweet_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "author_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::twitter-user.twitter-user"
+    },
+    "original_tweet_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

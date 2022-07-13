@@ -1,0 +1,52 @@
+{
+  "name": "api-ts",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "test": "jest --forceExit --detectOpenHandles"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/jest": "^28.1.4",
+    "babel-jest": "^28.1.2",
+    "jest": "^28.1.2",
+    "sqlite3": "^5.0.8"
+  },
+  "dependencies": {
+    "@strapi/plugin-i18n": "4.3.0-beta.2",
+    "@strapi/plugin-users-permissions": "4.3.0-beta.2",
+    "@strapi/strapi": "4.3.0-beta.2",
+    "lodash.omit": "^4.5.0",
+    "pg": "8.6.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".tmp",
+      ".cache",
+      "dist"
+    ],
+    "testEnvironment": "node",
+    "testTimeout": 10000,
+    "globalSetup": "./src/tests/setup.ts",
+    "globalTeardown": "./src/tests/teardown.ts"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "fd6f4b5b-a7cc-40d3-ad70-68dd04ca8deb"
+  },
+  "engines": {
+    "node": "^16.3.0",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

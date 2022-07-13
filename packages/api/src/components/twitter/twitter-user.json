@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_twitter_twitter_users",
+  "info": {
+    "displayName": "Twitter User",
+    "icon": "address-book"
+  },
+  "options": {},
+  "attributes": {
+    "twitter_id": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "profile_image_url": {
+      "type": "string"
+    }
+  }
+}

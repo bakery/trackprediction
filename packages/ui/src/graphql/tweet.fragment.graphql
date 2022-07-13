@@ -1,0 +1,10 @@
+fragment TweetData on ComponentTwitterTweet {
+  id
+  author {
+    ...TwitterUserData
+  }
+  twitter_id
+  text
+  lang
+  twitter_created_at
+}

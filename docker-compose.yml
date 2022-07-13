@@ -1,0 +1,24 @@
+services:
+  database:
+    image: postgres
+    container_name: prediction_tracker_database
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: prediction-tracker
+      POSTGRES_USER: pythia
+      POSTGRES_PASSWORD: delphi
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - 5432:5432
+    networks:
+        - postgres
+    restart: unless-stopped
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+    postgres:

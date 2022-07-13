@@ -1,0 +1,114 @@
+{
+  "data": {
+    "id": "1525252600530100226",
+    "entities": {
+      "urls": [
+        {
+          "start": 204,
+          "end": 227,
+          "url": "https://t.co/MyG37QzGhO",
+          "expanded_url": "http://nasa.gov/subscribe",
+          "display_url": "nasa.gov/subscribe",
+          "images": [
+            {
+              "url": "https://pbs.twimg.com/news_img/1525252644834615296/5D4Q97gz?format=jpg&name=orig",
+              "width": 800,
+              "height": 400
+            },
+            {
+              "url": "https://pbs.twimg.com/news_img/1525252644834615296/5D4Q97gz?format=jpg&name=150x150",
+              "width": 150,
+              "height": 150
+            }
+          ],
+          "status": 200,
+          "title": "Sign Up",
+          "description": "Sign Up Here!",
+          "unwound_url": "https://lp.constantcontactpages.com/su/hHN32CZ/nasagov"
+        },
+        {
+          "start": 228,
+          "end": 251,
+          "url": "https://t.co/LcUnARub6w",
+          "expanded_url": "https://twitter.com/NASA/status/1525252600530100226/video/1",
+          "display_url": "pic.twitter.com/LcUnARub6w",
+          "media_key": "13_1525252426676195334"
+        }
+      ],
+      "mentions": [
+        {
+          "start": 72,
+          "end": 84,
+          "username": "NASAInSight",
+          "id": "407387443"
+        }
+      ]
+    },
+    "public_metrics": {
+      "retweet_count": 245,
+      "reply_count": 53,
+      "like_count": 1721,
+      "quote_count": 8
+    },
+    "text": "This Week @ NASA:\n\n• NASA telescopes help spot Milky Way's black hole\n• @NASAInSight detects largest marsquake yet\n• Scientists grow plants in lunar soil\n\nOur NASA Newsletter has even more space for you: https://t.co/MyG37QzGhO https://t.co/LcUnARub6w",
+    "lang": "en",
+    "conversation_id": "1525252600530100226",
+    "created_at": "2022-05-13T23:12:12.000Z",
+    "author_id": "11348282",
+    "attachments": {
+      "media_keys": [
+        "13_1525252426676195334"
+      ]
+    },
+    "source": "Sprinklr"
+  },
+  "includes": {
+    "media": [
+      {
+        "preview_image_url": "https://pbs.twimg.com/media/FSrJJjiWAAAi0MN.png",
+        "public_metrics": {
+          "view_count": 87636
+        },
+        "width": 720,
+        "duration_ms": 247146,
+        "type": "video",
+        "height": 405,
+        "media_key": "13_1525252426676195334"
+      }
+    ],
+    "users": [
+      {
+        "location": "Pale Blue Dot",
+        "protected": false,
+        "verified": true,
+        "id": "11348282",
+        "created_at": "2007-12-19T20:20:32.000Z",
+        "description": "There's space for everybody. ✨",
+        "name": "NASA",
+        "profile_image_url": "https://pbs.twimg.com/profile_images/1321163587679784960/0ZxKlEKB_normal.jpg",
+        "url": "https://t.co/9NkQJKAnuU",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "start": 0,
+                "end": 23,
+                "url": "https://t.co/9NkQJKAnuU",
+                "expanded_url": "http://www.nasa.gov/",
+                "display_url": "nasa.gov"
+              }
+            ]
+          }
+        },
+        "public_metrics": {
+          "followers_count": 56931445,
+          "following_count": 182,
+          "tweet_count": 68444,
+          "listed_count": 98243
+        },
+        "pinned_tweet_id": "1525224951061659650",
+        "username": "NASA"
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+fragment TwitterUserData on ComponentTwitterTwitterUser {
+  id
+  twitter_id
+  name
+  username
+  url
+  description
+  profile_image_url
+}

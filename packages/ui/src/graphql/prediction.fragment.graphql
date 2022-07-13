@@ -1,0 +1,10 @@
+fragment PredictionData on PredictionEntity {
+  id
+  attributes {
+    source_tweet_id
+    status
+    tweet {
+      ...TweetData
+    }
+  }
+}

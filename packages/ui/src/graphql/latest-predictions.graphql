@@ -1,0 +1,12 @@
+query latestPredictions {
+  predictions(filters: {}, pagination: {}, sort: ["createdAt:desc"]) {
+    data {
+      ...PredictionData
+    }
+    meta {
+      pagination {
+        ...PaginationData
+      }
+    }
+  }
+}

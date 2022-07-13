@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trackers",
+  "info": {
+    "singularName": "tracker",
+    "pluralName": "trackers",
+    "displayName": "Tracker"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "prediction": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::prediction.prediction"
+    },
+    "twitter_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::twitter-user.twitter-user"
+    }
+  }
+}

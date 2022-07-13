@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tweets",
+  "info": {
+    "singularName": "tweet",
+    "pluralName": "tweets",
+    "displayName": "Tweet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "twitter_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "text": {
+      "type": "text",
+      "required": true
+    },
+    "lang": {
+      "type": "string"
+    },
+    "author": {
+      "type": "component",
+      "repeatable": false,
+      "component": "twitter.twitter-user",
+      "required": true
+    },
+    "original_tweet": {
+      "type": "component",
+      "repeatable": false,
+      "component": "twitter.tweet",
+      "required": true
+    },
+    "original_tweet_data": {
+      "type": "json",
+      "required": true
+    },
+    "event_data": {
+      "type": "json",
+      "required": true
+    },
+    "twitter_created_at": {
+      "type": "datetime"
+    }
+  }
+}

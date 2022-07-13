@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "twitter_users",
+  "info": {
+    "singularName": "twitter-user",
+    "pluralName": "twitter-users",
+    "displayName": "Twitter User"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "twitter_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "username": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "profile_image_url": {
+      "type": "string"
+    }
+  }
+}

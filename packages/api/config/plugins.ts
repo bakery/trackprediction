@@ -5,7 +5,9 @@ export default ({ env }) => ({
       playgroundAlways: true,
       defaultLimit: 10,
       maxLimit: 20,
-      apolloServer: {},
+      apolloServer: {
+        introspection: true,
+      },
     },
   },
 });

@@ -5,7 +5,7 @@
 import { factories } from "@strapi/strapi";
 
 export default factories.createCoreRouter("api::tweet.tweet", {
-  only: ["create"],
+  only: ["create", "find"],
   config: {
     create: {
       middlewares: [

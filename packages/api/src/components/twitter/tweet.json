@@ -2,7 +2,8 @@
   "collectionName": "components_twitter_tweets",
   "info": {
     "displayName": "Tweet",
-    "icon": "pen-fancy"
+    "icon": "pen-fancy",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -24,7 +25,8 @@
       "type": "string"
     },
     "twitter_created_at": {
-      "type": "datetime"
+      "type": "datetime",
+      "required": true
     }
   }
 }

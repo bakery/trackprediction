@@ -105,6 +105,8 @@ describe("Predictions API", () => {
       author: Object.assign({}, incomingTweet.original_tweet.author, {
         id: predictions[0].author.id,
       }),
+      author_username: incomingTweet.original_tweet.author.username,
+      prediction_text: incomingTweet.original_tweet.text,
       tweet: Object.assign(
         { id: predictions[0].tweet.id },
         incomingTweet.original_tweet,

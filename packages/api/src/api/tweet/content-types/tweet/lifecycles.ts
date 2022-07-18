@@ -52,6 +52,8 @@ export default {
     if (!prediction) {
       prediction = await entityService.create(PREDICTIONS, {
         data: {
+          author_username: newTweet.original_tweet.author.username,
+          prediction_text: newTweet.original_tweet.text,
           tweet: cleanupComponent(newTweet.original_tweet),
           author: cleanupComponent(newTweet.original_tweet.author),
           source_tweet: newTweet.id,

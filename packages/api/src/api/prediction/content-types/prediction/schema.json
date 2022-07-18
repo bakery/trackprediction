@@ -54,6 +54,14 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "author_username": {
+      "type": "string",
+      "required": true
+    },
+    "prediction_text": {
+      "type": "text",
+      "required": true
     }
   }
 }

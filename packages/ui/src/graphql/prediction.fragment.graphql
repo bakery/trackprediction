@@ -1,10 +1,20 @@
 fragment PredictionData on PredictionEntity {
   id
   attributes {
-    source_tweet_id
     status
+    original_tweet_id
     tweet {
       ...TweetData
+    }
+    source_tweet {
+      data {
+        id
+        attributes {
+          author {
+            ...TwitterUserData
+          }
+        }
+      }
     }
   }
 }

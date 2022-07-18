@@ -1,12 +1,10 @@
-query allPredictions {
-  predictions {
+query predictions($filters: PredictionFiltersInput, $sort: [String]) {
+  predictions(filters: $filters, sort: $sort) {
     data {
       ...PredictionData
     }
     meta {
-      pagination {
-        ...PaginationData
-      }
+      ...CollectionMeta
     }
   }
 }

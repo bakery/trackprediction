@@ -1,6 +1,0 @@
-fragment PaginationData on Pagination {
-  total
-  page
-  pageSize
-  pageCount
-}

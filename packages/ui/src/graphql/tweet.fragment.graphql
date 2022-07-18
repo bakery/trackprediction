@@ -1,10 +1,10 @@
 fragment TweetData on ComponentTwitterTweet {
   id
+  twitter_id
+  text
+  twitter_created_at
+  lang
   author {
     ...TwitterUserData
   }
-  twitter_id
-  text
-  lang
-  twitter_created_at
 }

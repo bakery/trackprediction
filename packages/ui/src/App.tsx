@@ -12,11 +12,10 @@ import {
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import { Logo } from "./Logo";
-import { Home } from "./pages/Home";
+import { Predictions } from "./pages/Predictions";
 
 const client = new ApolloClient({
-  uri: "http://localhost:1337/graphql",
+  uri: process.env.REACT_APP_APOLLO_CLIENT_URI,
   cache: new InMemoryCache(),
 });
 
@@ -26,7 +25,10 @@ export const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+            <Route index element={<Predictions filter="latest" />} />
+            <Route path="/pending" element={<Predictions filter="pending" />} />
+            <Route path="/true" element={<Predictions filter="true" />} />
+            <Route path="/false" element={<Predictions filter="false" />} />
           </Route>
         </Routes>
       </BrowserRouter>
@@ -36,23 +38,10 @@ export const App = () => (
 
 function Layout() {
   return (
-    <Box textAlign="center" fontSize="xl">
+    <Box fontSize="xl">
       <Grid minH="100vh" p={3}>
         <ColorModeSwitcher justifySelf="flex-end" />
         <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
           <Outlet />
         </VStack>
       </Grid>

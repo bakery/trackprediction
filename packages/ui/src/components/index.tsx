@@ -1,0 +1,1 @@
+export { PredictionTile } from "./PredictionTile";

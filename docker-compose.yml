@@ -16,9 +16,25 @@ services:
     networks:
         - postgres
     restart: unless-stopped
+  pgadmin:
+    container_name: prediction_tracker_pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: philip@thebakery.io
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+        - pgadmin:/var/lib/pgadmin
+    ports:
+      - 5050:80
+    networks:
+      - postgres
+    restart: unless-stopped
 networks:
   postgres:
     driver: bridge
 
 volumes:
     postgres:
+    pgadmin:

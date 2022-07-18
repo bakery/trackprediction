@@ -5,7 +5,7 @@ const TRACKERS = "api::tracker.tracker";
 
 const populateAll = { populate: ["author", "original_tweet.author"] };
 
-const getTwitterUserFromTwitterAuthor = async (author) => {
+export const getTwitterUserFromTwitterAuthor = async (author) => {
   //@ts-ignore
   const entityService = strapi.entityService;
   const existingUsers = await entityService.findMany(TWITTER_USERS, {
@@ -23,7 +23,7 @@ const getTwitterUserFromTwitterAuthor = async (author) => {
   });
 };
 
-const cleanupComponent = (c) => {
+export const cleanupComponent = (c) => {
   const { id, ...rest } = c;
   return Object.keys(rest).reduce((r, k) => {
     r[k] = typeof rest[k] !== "object" ? rest[k] : cleanupComponent(rest[k]);

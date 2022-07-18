@@ -25,7 +25,9 @@
     "@strapi/plugin-users-permissions": "4.3.0-beta.2",
     "@strapi/strapi": "4.3.0-beta.2",
     "lodash.omit": "^4.5.0",
-    "pg": "8.6.0"
+    "lodash.pick": "^4.4.0",
+    "pg": "8.6.0",
+    "twitter-api-v2": "^1.12.3"
   },
   "jest": {
     "testPathIgnorePatterns": [

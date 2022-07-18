@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "manual_tweet_syncs",
+  "info": {
+    "singularName": "manual-tweet-sync",
+    "pluralName": "manual-tweet-syncs",
+    "displayName": "Manual Tweet Sync"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tweet_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "tweet": {
+      "type": "component",
+      "repeatable": false,
+      "component": "twitter.tweet"
+    }
+  }
+}

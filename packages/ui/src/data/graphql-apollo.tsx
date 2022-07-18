@@ -163,7 +163,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = ComponentTwitterTweet | ComponentTwitterTwitterUser | I18NLocale | Prediction | Tracker | Tweet | TwitterUser | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentTwitterTweet | ComponentTwitterTwitterUser | I18NLocale | ManualTweetSync | Prediction | Tracker | Tweet | TwitterUser | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -270,8 +270,50 @@ export type JsonFilterInput = {
   startsWith?: InputMaybe<Scalars['JSON']>;
 };
 
+export type ManualTweetSync = {
+  __typename?: 'ManualTweetSync';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  tweet?: Maybe<ComponentTwitterTweet>;
+  tweet_id: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ManualTweetSyncEntity = {
+  __typename?: 'ManualTweetSyncEntity';
+  attributes?: Maybe<ManualTweetSync>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type ManualTweetSyncEntityResponse = {
+  __typename?: 'ManualTweetSyncEntityResponse';
+  data?: Maybe<ManualTweetSyncEntity>;
+};
+
+export type ManualTweetSyncEntityResponseCollection = {
+  __typename?: 'ManualTweetSyncEntityResponseCollection';
+  data: Array<ManualTweetSyncEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type ManualTweetSyncFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ManualTweetSyncFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<ManualTweetSyncFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ManualTweetSyncFiltersInput>>>;
+  tweet?: InputMaybe<ComponentTwitterTweetFiltersInput>;
+  tweet_id?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type ManualTweetSyncInput = {
+  tweet?: InputMaybe<ComponentTwitterTweetInput>;
+  tweet_id?: InputMaybe<Scalars['String']>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
+  createManualTweetSync?: Maybe<ManualTweetSyncEntityResponse>;
   createPrediction?: Maybe<PredictionEntityResponse>;
   createTracker?: Maybe<TrackerEntityResponse>;
   createTweet?: Maybe<TweetEntityResponse>;
@@ -282,6 +324,7 @@ export type Mutation = {
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  deleteManualTweetSync?: Maybe<ManualTweetSyncEntityResponse>;
   deletePrediction?: Maybe<PredictionEntityResponse>;
   deleteTracker?: Maybe<TrackerEntityResponse>;
   deleteTweet?: Maybe<TweetEntityResponse>;
@@ -304,6 +347,7 @@ export type Mutation = {
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateFileInfo: UploadFileEntityResponse;
+  updateManualTweetSync?: Maybe<ManualTweetSyncEntityResponse>;
   updatePrediction?: Maybe<PredictionEntityResponse>;
   updateTracker?: Maybe<TrackerEntityResponse>;
   updateTweet?: Maybe<TweetEntityResponse>;
@@ -315,6 +359,11 @@ export type Mutation = {
   /** Update an existing user */
   updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   upload: UploadFileEntityResponse;
+};
+
+
+export type MutationCreateManualTweetSyncArgs = {
+  data: ManualTweetSyncInput;
 };
 
 
@@ -355,6 +404,11 @@ export type MutationCreateUsersPermissionsRoleArgs = {
 
 export type MutationCreateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
+};
+
+
+export type MutationDeleteManualTweetSyncArgs = {
+  id: Scalars['ID'];
 };
 
 
@@ -444,6 +498,12 @@ export type MutationUpdateFileInfoArgs = {
 };
 
 
+export type MutationUpdateManualTweetSyncArgs = {
+  data: ManualTweetSyncInput;
+  id: Scalars['ID'];
+};
+
+
 export type MutationUpdatePredictionArgs = {
   data: PredictionInput;
   id: Scalars['ID'];
@@ -519,10 +579,12 @@ export type Prediction = {
   __typename?: 'Prediction';
   author: ComponentTwitterTwitterUser;
   author_user?: Maybe<TwitterUserEntityResponse>;
+  author_username: Scalars['String'];
   createdAt?: Maybe<Scalars['DateTime']>;
   original_tweet_id: Scalars['String'];
+  prediction_text: Scalars['String'];
   source_tweet?: Maybe<TweetEntityResponse>;
-  source_tweet_id: Scalars['String'];
+  source_tweet_id?: Maybe<Scalars['String']>;
   status: Enum_Prediction_Status;
   tweet: ComponentTwitterTweet;
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -549,11 +611,13 @@ export type PredictionFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<PredictionFiltersInput>>>;
   author?: InputMaybe<ComponentTwitterTwitterUserFiltersInput>;
   author_user?: InputMaybe<TwitterUserFiltersInput>;
+  author_username?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   id?: InputMaybe<IdFilterInput>;
   not?: InputMaybe<PredictionFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<PredictionFiltersInput>>>;
   original_tweet_id?: InputMaybe<StringFilterInput>;
+  prediction_text?: InputMaybe<StringFilterInput>;
   source_tweet?: InputMaybe<TweetFiltersInput>;
   source_tweet_id?: InputMaybe<StringFilterInput>;
   status?: InputMaybe<StringFilterInput>;
@@ -564,7 +628,9 @@ export type PredictionFiltersInput = {
 export type PredictionInput = {
   author?: InputMaybe<ComponentTwitterTwitterUserInput>;
   author_user?: InputMaybe<Scalars['ID']>;
+  author_username?: InputMaybe<Scalars['String']>;
   original_tweet_id?: InputMaybe<Scalars['String']>;
+  prediction_text?: InputMaybe<Scalars['String']>;
   source_tweet?: InputMaybe<Scalars['ID']>;
   source_tweet_id?: InputMaybe<Scalars['String']>;
   status?: InputMaybe<Enum_Prediction_Status>;
@@ -575,6 +641,8 @@ export type Query = {
   __typename?: 'Query';
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
+  manualTweetSync?: Maybe<ManualTweetSyncEntityResponse>;
+  manualTweetSyncs?: Maybe<ManualTweetSyncEntityResponseCollection>;
   me?: Maybe<UsersPermissionsMe>;
   prediction?: Maybe<PredictionEntityResponse>;
   predictions?: Maybe<PredictionEntityResponseCollection>;
@@ -602,6 +670,18 @@ export type QueryI18NLocaleArgs = {
 
 export type QueryI18NLocalesArgs = {
   filters?: InputMaybe<I18NLocaleFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type QueryManualTweetSyncArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
+export type QueryManualTweetSyncsArgs = {
+  filters?: InputMaybe<ManualTweetSyncFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };

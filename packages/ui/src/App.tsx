@@ -22,7 +22,7 @@ const client = new ApolloClient({
 export const App = () => (
   <ChakraProvider theme={theme}>
     <ApolloProvider client={client}>
-      <BrowserRouter>
+      <BrowserRouter basename="trackprediction">
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Predictions filter="latest" />} />

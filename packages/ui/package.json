@@ -5,6 +5,7 @@
   "engines": {
     "node": "^16.13.0"
   },
+  "homepage": "https://bakery.github.io/trackprediction",
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@chakra-ui/react": "^2.2.4",
@@ -32,14 +33,17 @@
     "@graphql-codegen/introspection": "^2.2.0",
     "@graphql-codegen/typescript": "^2.7.1",
     "@graphql-codegen/typescript-operations": "^2.5.1",
-    "@graphql-codegen/typescript-react-apollo": "^3.3.1"
+    "@graphql-codegen/typescript-react-apollo": "^3.3.1",
+    "gh-pages": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "codegen": "graphql-codegen --config graphql.yml"
+    "codegen": "graphql-codegen --config graphql.yml",
+    "predeploy": "npm run build",
+    "deploy": "export REACT_APP_ROUTER_BASE_NAME=trackprediction && export REACT_APP_APOLLO_CLIENT_URI=https://prediction-tracker-api.herokuapp.com/ && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

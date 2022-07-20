@@ -39,7 +39,10 @@ export const PredictionTile: React.FC<Props> = ({ prediction }) => {
       <Flex>
         <Avatar
           name={p.tweet.author.name}
-          src={p.tweet.author.profile_image_url || ""}
+          src={(p.tweet.author.profile_image_url || "").replace(
+            /_normal/gi,
+            ""
+          )}
         />
         <Stack ml="2" spacing="-1">
           <Text fontWeight={"bold"}>{p.tweet.author.name}</Text>

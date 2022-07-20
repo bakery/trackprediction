@@ -8,25 +8,29 @@ import {
   ButtonGroup,
   Button,
   IconButton,
-  Avatar,
   Divider,
-  InputGroup,
-  InputLeftElement,
-  Icon,
-  Input,
+  Drawer,
+  DrawerContent,
+  DrawerOverlay,
   Stack,
   Text,
   theme,
   useBreakpointValue,
   useColorModeValue,
+  useDisclosure,
   Grid,
 } from "@chakra-ui/react";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Outlet,
+  useNavigate,
+} from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { FiHelpCircle, FiMenu, FiSearch, FiSettings } from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
 import { FaGithub, FaPaintBrush, FaTwitter } from "react-icons/fa";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import { Logo } from "Logo";
+import { ColorModeSwitcher, Logo, Sidebar } from "components";
 import { Predictions } from "./pages/Predictions";
 
 const client = new ApolloClient({
@@ -52,7 +56,9 @@ export const App = () => (
 );
 
 function Layout() {
+  const navigate = useNavigate();
   const isDesktop = useBreakpointValue({ base: false, lg: true });
+  const { isOpen, onToggle, onClose } = useDisclosure();
   return (
     <Box as="section" pb={{ base: "12", md: "24" }}>
       <Box
@@ -66,19 +72,45 @@ function Layout() {
               <Logo />
               {isDesktop && (
                 <ButtonGroup variant="ghost" spacing="1">
-                  <Button>Pending</Button>
-                  <Button aria-current="page">True</Button>
-                  <Button>False</Button>
-                  <ColorModeSwitcher justifySelf="flex-end" />
+                  <Button
+                    onClick={() => navigate("pending")}
+                    aria-current="page"
+                  >
+                    Pending
+                  </Button>
+                  <Button onClick={() => navigate("true")}>True</Button>
+                  <Button onClick={() => navigate("false")}>False</Button>
                 </ButtonGroup>
               )}
             </HStack>
-            {isDesktop ? null : (
-              <IconButton
-                variant="ghost"
-                icon={<FiMenu fontSize="1.25rem" />}
-                aria-label="Open Menu"
-              />
+            {isDesktop ? (
+              <HStack>
+                <ColorModeSwitcher justifySelf="flex-end" />
+              </HStack>
+            ) : (
+              <>
+                <HStack>
+                  <ColorModeSwitcher />
+                  <IconButton
+                    variant="ghost"
+                    icon={<FiMenu fontSize="1.25rem" />}
+                    aria-label="Open Menu"
+                    onClick={onToggle}
+                  />
+                </HStack>
+                <Drawer
+                  isOpen={isOpen}
+                  placement="left"
+                  onClose={onClose}
+                  isFullHeight
+                  preserveScrollBarGap
+                >
+                  <DrawerOverlay />
+                  <DrawerContent>
+                    <Sidebar />
+                  </DrawerContent>
+                </Drawer>
+              </>
             )}
           </Flex>
         </Container>
@@ -125,14 +157,4 @@ function Layout() {
       </Container>
     </Box>
   );
-  // return (
-  //   <Box fontSize="xl">
-  //     <Grid minH="100vh" p={3}>
-  //       <ColorModeSwitcher justifySelf="flex-end" />
-  //       <VStack spacing={8}>
-  //         <Outlet />
-  //       </VStack>
-  //     </Grid>
-  //   </Box>
-  // );
 }

@@ -13,6 +13,7 @@ import { Icon } from "@chakra-ui/icons";
 import { FaTwitter } from "react-icons/fa";
 import moment from "moment";
 import { PredictionDataFragment, Enum_Prediction_Status } from "data";
+import { TweetText } from "./TweetText";
 
 type Props = {
   prediction: PredictionDataFragment;
@@ -50,7 +51,7 @@ export const PredictionTile: React.FC<Props> = ({ prediction }) => {
           </Badge>
         </Box>
       </Flex>
-      <Text>{p.tweet.text}</Text>
+      <TweetText text={p.tweet.text} />
       <HStack color="gray.600">
         <Text>{moment(p.tweet.twitter_created_at).fromNow()}</Text>
         <Text>·</Text>
